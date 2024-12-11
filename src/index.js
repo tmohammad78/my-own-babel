@@ -5,7 +5,11 @@ import traverse from "./traverse/traverse.js";
 
 const code = `
 let name = "Mohammad"
-let age = 12
+let age = 12;
+function helloFn() {
+    return 'hello world'
+}
+const a = () => {}
 `
 const ast = parser(code)
 

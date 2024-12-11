@@ -42,6 +42,8 @@ class Generate {
     }
 
     StringLiteral(node) {
+        console.log(node,'dd');
+        
         this.code += '"'
         this.code += node.value
         this.code += '"'
@@ -66,6 +68,42 @@ class Generate {
             this.addNewLine();
         });
     }
+
+    FunctionDeclaration(node) {
+        const fnName  = node.id.name
+        this.code += 'function '
+        this.code += fnName
+        this.code += '('
+        this.code += node.params.map(item => item.name).join(',')
+        this.code += '){'
+        this.addNewLine()
+        this[node.body.type](node.body);
+        this.code += '}'
+    }
+
+    ArrowFunctionExpression(node) {
+        this.code += 'function ';
+        this.code += '(';
+        this.code += node.params.map(item => item.name).join(',');
+        this.code += ') {';
+        this.addNewLine();
+        this[node.body.type](node.body);
+        this.code += '}';
+    }
+
+    BlockStatement(node) {
+        node.body.map(item => {
+            this.code += '   '
+            this[item.type](item)
+            this.addNewLine()
+        })
+    }
+
+    ReturnStatement(node) {
+        this.code += 'return '
+        this[node.argument.type](node.argument)
+    }
+    
     generate(node) {
         this[node.type](node)
         return {
