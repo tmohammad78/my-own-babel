@@ -5,13 +5,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --watch ./src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/parser": "^7.26.3",
     "acorn": "^8.14.0",
     "source-map": "^0.7.4"
   }

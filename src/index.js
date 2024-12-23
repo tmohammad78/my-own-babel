@@ -30,11 +30,13 @@ traverse(ast, {
     },
     StringLiteral(node) {
         console.log(node,"StringLiteral *******************");
+    },
+    enter(node) {
+        console.log("**************Enter",node)
     }
     // VariableDeclarator(node) {
     //     console.log(node,"this is VariableDeclarator *******************");
     // }
-    
 })
 
 console.log(generate(ast),'new code');

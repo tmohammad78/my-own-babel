@@ -12,6 +12,7 @@ astDefinations.set('VariableDeclaration', {
 astDefinations.set('VariableDeclarator', {
     visitor: ['id', 'init']
 });
+
 astDefinations.set('Identifier', {
     visitor: []
 });

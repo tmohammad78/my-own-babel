@@ -2,7 +2,7 @@ import { SourceMapGenerator } from "source-map"
 
 class Generate {
 
-    constructor(node) {
+    constructor() {
         this.code = ''
         this.sourceFile = null
     }
